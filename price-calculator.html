@@ -1,0 +1,802 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="price calculator, product comparison" />
+    <meta
+      name="description"
+      content="Compare prices of products across different brands"
+    />
+    <meta name="author" content="" />
+
+    <title>
+      Price Calculator - Sri Sainath Iron Hardware and General Merchant
+    </title>
+    <link rel="icon" type="image/png" href="images/s2.png" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <style>
+      .calculator_section {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+      }
+
+      .calculator_container {
+        background: white;
+        padding: 50px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      .form-group label {
+        font-weight: 800;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        display: block;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-left: 5px;
+      }
+
+      .form-group label i {
+        margin-right: 10px;
+        color: #ff9800;
+        font-size: 20px;
+      }
+
+      /* Custom Select Dropdown Styling */
+      .select-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .select-wrapper select {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+      }
+
+      .select-display {
+        width: 100%;
+        border: 3px solid #ff9800;
+        border-radius: 8px;
+        padding: 16px 50px 16px 16px;
+        font-size: 18px;
+        font-weight: 700;
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9800' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 26px;
+        line-height: 1.6;
+        display: block;
+        min-height: 52px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .select-wrapper:hover .select-display {
+        border-color: #ff9800;
+        box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+      }
+
+      .select-wrapper:focus-within .select-display {
+        border-color: #ff9800;
+        box-shadow:
+          0 0 0 5px rgba(255, 152, 0, 0.2),
+          0 4px 12px rgba(255, 152, 0, 0.25);
+        background-color: #fffbf7;
+      }
+
+      .form-control {
+        width: 100%;
+        border: 3px solid #ff9800;
+        border-radius: 8px;
+        padding: 16px 50px 16px 16px;
+        font-size: 18px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9800' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 26px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        text-overflow: ellipsis;
+        line-height: 1.6;
+      }
+
+      .quantity-input {
+        background-image: none !important;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+        border: 3px solid #ff9800;
+      }
+
+      .quantity-input::placeholder {
+        color: #999999;
+      }
+
+      .quantity-input:focus {
+        outline: none;
+        border-color: #ff9800;
+        box-shadow: 0 0 0 5px rgba(255, 152, 0, 0.2);
+      }
+
+      /* Multi-Size Quantity Input Styling */
+      .size-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .size-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .size-label {
+        font-size: 22px;
+        font-weight: 700;
+        color: #000000;
+        min-width: 100px;
+        text-align: right;
+      }
+
+      .size-input {
+        flex: 1;
+        padding: 16px;
+        font-size: 20px;
+        font-weight: 700;
+        border: 3px solid #ffffff;
+        border-radius: 8px;
+        background-color: #ffffff;
+        color: #000000;
+        text-align: center;
+      }
+
+      .size-input:focus {
+        outline: none;
+        border-color: #ff9800;
+        box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
+      }
+
+      .size-unit {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000000;
+        min-width: 150px;
+      }
+
+      .form-control::-ms-expand {
+        display: none;
+      }
+
+      .form-control:hover {
+        border-color: #ff9800;
+        box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+      }
+
+      .form-control:focus {
+        border-color: #ff9800;
+        box-shadow:
+          0 0 0 5px rgba(255, 152, 0, 0.2),
+          0 4px 12px rgba(255, 152, 0, 0.25);
+        outline: none;
+        background-color: #fffbf7;
+      }
+
+      .form-control:disabled {
+        background-color: #f5f5f5;
+        color: #666666;
+        cursor: not-allowed;
+        border-color: #ddd;
+        opacity: 1;
+      }
+
+      .form-control option {
+        padding: 15px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: #ffffff;
+        color: #000000;
+        line-height: 1.8;
+      }
+
+      /* Custom Select Display Styling */
+      .custom-select-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .custom-select-display {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 16px 50px 16px 16px;
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.6;
+        border: 3px solid #ff9800;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        pointer-events: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9800' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 26px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        min-height: 52px;
+      }
+
+      .custom-select {
+        opacity: 0;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 20;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: #ffffff;
+        border: 3px solid #ff9800;
+        border-radius: 8px;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.6;
+      }
+
+      .custom-select-wrapper:hover .custom-select-display {
+        box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+      }
+
+      .custom-select-wrapper:focus-within .custom-select-display {
+        box-shadow:
+          0 0 0 5px rgba(255, 152, 0, 0.2),
+          0 4px 12px rgba(255, 152, 0, 0.25);
+        background-color: #fffbf7;
+      }
+
+      .custom-select:disabled ~ .custom-select-display {
+        background-color: #f5f5f5;
+        color: #666666;
+        opacity: 0.7;
+      }
+
+      .btn-compare {
+        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        color: white;
+        padding: 18px 50px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 30px;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .btn-compare:hover {
+        background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+        box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        transform: translateY(-2px);
+      }
+
+      .btn-compare:active {
+        transform: translateY(0);
+      }
+
+      .comparison_result {
+        margin-top: 40px;
+        display: none;
+      }
+
+      .comparison_result.show {
+        display: block;
+        animation: slideIn 0.5s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .product_title {
+        background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 8px 8px 0 0;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .comparison_table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .comparison_table thead {
+        background-color: #333;
+        color: white;
+      }
+
+      .comparison_table th {
+        padding: 18px;
+        text-align: left;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .comparison_table td {
+        padding: 18px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+      }
+
+      .comparison_table tbody tr:hover {
+        background-color: #fff9f0;
+      }
+
+      .comparison_table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .company_name {
+        font-weight: 700;
+        color: #1a1a1a;
+        font-size: 17px;
+      }
+
+      .price {
+        color: #ff9800;
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      .info_box {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-left: 5px solid #ff9800;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 6px;
+        color: #1a1a1a;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .info_box i {
+        color: #ff9800;
+        margin-right: 12px;
+        font-size: 20px;
+      }
+
+      .error_message {
+        color: #d32f2f;
+        background-color: #ffebee;
+        padding: 18px;
+        border-radius: 6px;
+        margin-top: 20px;
+        display: none;
+        border-left: 5px solid #d32f2f;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .error_message.show {
+        display: block;
+        animation: slideIn 0.3s ease;
+      }
+
+      .no_products {
+        text-align: center;
+        padding: 40px 30px;
+        color: #999;
+        font-size: 18px;
+      }
+
+      @media (max-width: 768px) {
+        .calculator_container {
+          padding: 25px;
+        }
+
+        .form-control {
+          padding: 16px 14px;
+          font-size: 16px;
+        }
+
+        .form-group label {
+          font-size: 16px;
+          margin-bottom: 12px;
+        }
+
+        .comparison_table th,
+        .comparison_table td {
+          padding: 12px;
+          font-size: 14px;
+        }
+
+        .price {
+          font-size: 16px;
+        }
+
+        .btn-compare {
+          padding: 16px 30px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="header_top">
+          <div class="container-fluid header_top_container">
+            <div class="contact_nav">
+              <a href="tel:+91 9059336546">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span> Call : +91 9059336546 </span>
+              </a>
+              <a href="mailto:srisainathhardware@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span> Email : srisainathhardware@gmail.com </span>
+              </a>
+              <a href="https://goo.gl/maps/2mahFXAaeL2CiioJ7">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>Locate Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="header_bottom">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <img src="images/download.jpg" alt=""
+              /></a>
+              <div class="col-md-4">
+                <img src="images/logon.png" width="65%" height="60px" alt="" />
+                <img src="images/logo1.png" width="65%" height="60px" alt="" />
+              </div>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class=""> </span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="service.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html"> About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="project.html">Products</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="price-calculator.html"
+                      >Price Calculator</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="testimonial.html">Proprietor</a>
+                  </li>
+                </ul>
+                <div class="quote_btn-container">
+                  <a href="contact.html" class="quote_btn"> Contact Us </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+
+    <!-- calculator section -->
+    <section class="calculator_section">
+      <div class="container">
+        <div class="heading_container">
+          <h2>Price Comparison Calculator</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <div class="calculator_container">
+              <div class="info_box">
+                <i class="fa fa-info-circle"></i>
+                <strong>How to use:</strong> Select a product category, choose a
+                product, and instantly compare prices across all brands and
+                companies.
+              </div>
+
+              <form id="calculatorForm">
+                <!-- Category Selection -->
+                <div class="form-group">
+                  <label for="categorySelect">
+                    <i class="fa fa-list" aria-hidden="true"></i> Select
+                    Category
+                  </label>
+                  <div class="custom-select-wrapper">
+                    <div
+                      class="custom-select-display"
+                      id="categoryDisplay"
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                      "
+                    >
+                      -- Choose a Category --
+                    </div>
+                    <select
+                      class="form-control custom-select"
+                      id="categorySelect"
+                      required
+                    >
+                      <option value="">-- Choose a Category --</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Quantity Input - Single Field (Default) -->
+                <div
+                  class="form-group"
+                  id="singleQuantitySection"
+                  style="display: none"
+                >
+                  <label for="quantityInput">
+                    <i class="fa fa-inbox" aria-hidden="true"></i> Enter
+                    Quantity
+                  </label>
+                  <div style="display: flex; gap: 10px; align-items: center">
+                    <input
+                      type="number"
+                      class="form-control quantity-input"
+                      id="quantityInput"
+                      placeholder="Enter quantity"
+                      min="0.1"
+                      step="0.1"
+                      style="flex: 1"
+                    />
+                    <span
+                      id="unitDisplay"
+                      style="
+                        font-weight: 700;
+                        color: #ff9800;
+                        font-size: 16px;
+                        padding: 16px;
+                        min-width: 150px;
+                      "
+                      >Select a product</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Multi-Size Quantity Input (For TMT Bars etc.) -->
+                <div
+                  class="form-group"
+                  id="multiSizeQuantitySection"
+                  style="display: none"
+                >
+                  <label
+                    style="
+                      text-align: center;
+                      width: 100%;
+                      background: linear-gradient(
+                        135deg,
+                        #cddc39 0%,
+                        #afb42b 100%
+                      );
+                      color: #000;
+                      padding: 15px;
+                      border-radius: 8px;
+                      font-size: 22px;
+                      margin-bottom: 0;
+                    "
+                  >
+                    <i class="fa fa-inbox" aria-hidden="true"></i> Quantity
+                  </label>
+                  <div
+                    id="multiSizeInputs"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #cddc39 0%,
+                        #c0ca33 100%
+                      );
+                      padding: 30px;
+                      border-radius: 0 0 8px 8px;
+                    "
+                  >
+                    <!-- Dynamic size inputs will be inserted here -->
+                  </div>
+                </div>
+
+                <!-- Compare Button -->
+                <button type="button" class="btn-compare" id="compareBtn">
+                  <i class="fa fa-exchange" aria-hidden="true"></i> Calculate
+                  Total
+                </button>
+              </form>
+
+              <!-- Error Message -->
+              <div class="error_message" id="errorMessage"></div>
+
+              <!-- Comparison Result -->
+              <div class="comparison_result" id="comparisonResult">
+                <h3 class="product_title" id="productTitle"></h3>
+                <table class="comparison_table">
+                  <thead>
+                    <tr>
+                      <th width="30%">Company / Brand</th>
+                      <th width="25%">Unit Price</th>
+                      <th width="25%">Quantity</th>
+                      <th width="20%">Total Price</th>
+                    </tr>
+                  </thead>
+                  <tbody id="priceTableBody">
+                    <tr>
+                      <td colspan="2" class="no_products">
+                        No prices available
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end calculator section -->
+
+    <!-- info section -->
+    <section class="info_section">
+      <div class="container">
+        <div class="contact_nav">
+          <a href="tel:+91 9059336546">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span> Call : +91 9059336546 </span>
+          </a>
+          <a href="mailto:srisainathhardware@gmail.com">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span> Email : srisainathhardware@gmail.com </span>
+          </a>
+        </div>
+
+        <div class="info_top">
+          <div class="row info_main_row">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="info_links">
+                <h4>QUICK LINKS</h4>
+                <div class="info_links_menu">
+                  <a class="" href="index.html">Home</a>
+                  <a class="" href="service.html">Services</a>
+                  <a class="" href="about.html">About</a>
+                  <a class="" href="project.html">Products</a>
+                  <a class="" href="price-calculator.html">Price Calculator</a>
+                  <a class="" href="testimonial.html">Proprietor</a>
+                  <a class="" href="contact.html">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end info_section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span>
+          <a href="https://html.design/"
+            >Sri Sainath Iron Hardware and General Merchant</a
+          >
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/products-data.js"></script>
+    <script src="js/calculator.js"></script>
+  </body>
+</html>
