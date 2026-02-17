@@ -68,6 +68,7 @@ const productsDatabase = {
         name: "TMT Bars 8mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 388 },
           { company: "TATA 550D", price: 373 },
           { company: "JSW Neosteel", price: 382 },
           { company: "Goel TMT", price: 339 },
@@ -79,6 +80,7 @@ const productsDatabase = {
         name: "TMT Bars 10mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 596 },
           { company: "TATA 550D", price: 567 },
           { company: "JSW Neosteel", price: 586 },
           { company: "Goel TMT", price: 525 },
@@ -90,6 +92,7 @@ const productsDatabase = {
         name: "TMT Bars 12mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 842 },
           { company: "TATA 550D", price: 799 },
           { company: "JSW Neosteel", price: 823 },
           { company: "Goel TMT", price: 742 },
@@ -101,6 +104,7 @@ const productsDatabase = {
         name: "TMT Bars 16mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 1498 },
           { company: "TATA 550D", price: 1422 },
           { company: "JSW Neosteel", price: 1465 },
           { company: "Goel TMT", price: 1315 },
@@ -112,6 +116,7 @@ const productsDatabase = {
         name: "TMT Bars 20mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 2342 },
           { company: "TATA 550D", price: 2223 },
           { company: "JSW Neosteel", price: 2290 },
           { company: "Goel TMT", price: 2050 },
@@ -123,6 +128,7 @@ const productsDatabase = {
         name: "TMT Bars 25mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 3651 },
           { company: "TATA 550D", price: 3465 },
           { company: "JSW Neosteel", price: 3569 },
           { company: "Goel TMT", price: 3169 },
@@ -134,6 +140,7 @@ const productsDatabase = {
         name: "TMT Bars 32mm",
         unit: "per bar (12m)",
         brands: [
+          { company: "Jai Raj Steels", price: 6200 },
           { company: "TATA 550D", price: 5725 },
           { company: "JSW Neosteel", price: 5850 },
           { company: "Goel TMT", price: 5498 },
