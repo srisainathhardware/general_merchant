@@ -57,7 +57,7 @@ const productsDatabase = {
         name: "TMT Bars 6mm",
         unit: "per bar (12m)",
         brands: [
-          { company: "TATA 550D", price: 231 },
+          { company: "TATA 550D", price: 234 },
           { company: "JSW Neosteel", price: 228 },
           { company: "Goel TMT", price: 198 },
           { company: "Radha TMT", price: 191 },
@@ -69,7 +69,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 395 },
-          { company: "TATA 550D", price: 393 },
+          { company: "TATA 550D", price: 399 },
           { company: "JSW Neosteel", price: 401 },
           { company: "SEL Tiger", price: 393 },
           { company: "Shree TMT Xtra", price: 339 },
@@ -83,7 +83,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 606 },
-          { company: "TATA 550D", price: 600 },
+          { company: "TATA 550D", price: 609 },
           { company: "JSW Neosteel", price: 616 },
           { company: "SEL Tiger", price: 599 },
           { company: "Shree TMT Xtra", price: 516 },
@@ -97,7 +97,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 857 },
-          { company: "TATA 550D", price: 846 },
+          { company: "TATA 550D", price: 859 },
           { company: "JSW Neosteel", price: 860 },
           { company: "SEL Tiger", price: 840 },
           { company: "Shree TMT Xtra", price: 740 },
@@ -111,7 +111,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 1525 },
-          { company: "TATA 550D", price: 1505 },
+          { company: "TATA 550D", price: 1529 },
           { company: "JSW Neosteel", price: 1530 },
           { company: "SEL Tiger", price: 1503 },
           { company: "Shree TMT Xtra", price: 1303 },
@@ -125,7 +125,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 2385 },
-          { company: "TATA 550D", price: 2353 },
+          { company: "TATA 550D", price: 2390 },
           { company: "JSW Neosteel", price: 2391 },
           { company: "SEL Tiger", price: 2348 },
           { company: "Shree TMT Xtra", price: 2078 },
@@ -139,7 +139,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 3717 },
-          { company: "TATA 550D", price: 3668 },
+          { company: "TATA 550D", price: 3726 },
           { company: "JSW Neosteel", price: 3727 },
           { company: "SEL Tiger", price: 3650 },
           { company: "Shree TMT Xtra", price: 3241 },
@@ -153,7 +153,7 @@ const productsDatabase = {
         unit: "per bar (12m)",
         brands: [
           { company: "Jai Raj Steels", price: 6092 },
-          { company: "TATA 550D", price: 6058 },
+          { company: "TATA 550D", price: 6153 },
           { company: "JSW Neosteel", price: 6109 },
           { company: "SEL Tiger", price: 6080 },
           { company: "Shree TMT Xtra", price: 5488 },
