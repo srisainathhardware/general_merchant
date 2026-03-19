@@ -50,6 +50,7 @@
         padding: 50px;
         border-radius: 12px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
       }
 
       .form-group {
@@ -168,7 +169,8 @@
 
       /* Multi-Size Quantity Input Styling */
       .size-row {
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(80px, 120px) minmax(0, 1fr) minmax(95px, auto);
         align-items: center;
         gap: 15px;
         margin-bottom: 20px;
@@ -182,7 +184,7 @@
         font-size: 22px;
         font-weight: 700;
         color: #000000;
-        min-width: 100px;
+        min-width: 0;
         text-align: right;
       }
 
@@ -208,7 +210,14 @@
         font-size: 20px;
         font-weight: 700;
         color: #000000;
-        min-width: 150px;
+        min-width: 0;
+        text-align: left;
+      }
+
+      .comparison_table_wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .form-control::-ms-expand {
@@ -476,6 +485,33 @@
           padding: 25px;
         }
 
+        #multiSizeInputs {
+          padding: 20px !important;
+        }
+
+        .size-row {
+          grid-template-columns: 72px minmax(0, 1fr);
+          gap: 10px;
+          margin-bottom: 14px;
+        }
+
+        .size-label {
+          font-size: 16px;
+          text-align: left;
+        }
+
+        .size-input {
+          font-size: 18px;
+          padding: 12px;
+        }
+
+        .size-unit {
+          grid-column: 2;
+          font-size: 12px;
+          margin-top: -4px;
+          color: #333;
+        }
+
         .form-control {
           padding: 16px 14px;
           font-size: 16px;
@@ -492,12 +528,52 @@
           font-size: 14px;
         }
 
+        .comparison_table {
+          min-width: 620px;
+        }
+
         .price {
           font-size: 16px;
         }
 
         .btn-compare {
           padding: 16px 30px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .calculator_section {
+          padding: 40px 0;
+        }
+
+        .calculator_container {
+          padding: 16px;
+          border-radius: 10px;
+        }
+
+        .form-group label {
+          font-size: 15px;
+        }
+
+        .custom-select-display,
+        .form-control,
+        .custom-select {
+          font-size: 16px;
+          min-height: 48px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+
+        .size-row {
+          grid-template-columns: 64px minmax(0, 1fr);
+        }
+
+        .size-label {
+          font-size: 14px;
+        }
+
+        .size-input {
           font-size: 16px;
         }
       }
@@ -718,23 +794,25 @@
               <!-- Comparison Result -->
               <div class="comparison_result" id="comparisonResult">
                 <h3 class="product_title" id="productTitle"></h3>
-                <table class="comparison_table">
-                  <thead>
-                    <tr>
-                      <th width="30%">Company / Brand</th>
-                      <th width="25%">Unit Price</th>
-                      <th width="25%">Quantity</th>
-                      <th width="20%">Total Price</th>
-                    </tr>
-                  </thead>
-                  <tbody id="priceTableBody">
-                    <tr>
-                      <td colspan="2" class="no_products">
-                        No prices available
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="comparison_table_wrapper">
+                  <table class="comparison_table">
+                    <thead>
+                      <tr>
+                        <th width="30%">Company / Brand</th>
+                        <th width="25%">Unit Price</th>
+                        <th width="25%">Quantity</th>
+                        <th width="20%">Total Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="priceTableBody">
+                      <tr>
+                        <td colspan="2" class="no_products">
+                          No prices available
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -796,7 +874,7 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/products-data.js?v=20260311"></script>
+    <script src="js/products-data.js?v=20260319"></script>
     <script src="js/calculator.js"></script>
   </body>
 </html>
